@@ -1,6 +1,6 @@
 {
   "name": "lionel-example-webserver",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A sample webserver for Lionel-App",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Attila Reterics",
   "license": "GPL",
   "dependencies": {
-    "lionel-app": "^1.1.7",
+    "lionel-app": "1.1.9",
     "body-parser": "latest",
     "serve-favicon": "latest"
   }

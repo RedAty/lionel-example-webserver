@@ -1,5 +1,3 @@
-const {LionelClient} = require("lionel-app/app/globals");
-
 const { sampleObject } = require('../lib/exampleLibary');
 console.log('Index js is loaded: ' + sampleObject.resultObject);
 
