@@ -14,7 +14,7 @@
   "author": "Attila Reterics",
   "license": "GPL",
   "dependencies": {
-    "lionel-app": "1.2.12",
+    "lionel-app": "1.2.20",
     "body-parser": "latest",
     "serve-favicon": "latest"
   }

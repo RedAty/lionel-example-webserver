@@ -9,7 +9,9 @@ if (!header) {
 		icon:'logoWhite.png',
 		colorScheme:'dark',
 		items:['Home','Docs','About'],
-		default:'Home'
+		default:'Home',
+		alignment:'right',
+		background:'#3f75a2'
 	}).node;
 	const node = document.createElement('header');
 	node.classList.add('main');
@@ -22,13 +24,11 @@ if (!header) {
 		document.body.insertBefore(node,lionelContent);
 	}
 }
-const sidebarMenuList = ['Docs','Getting Started','Getting%20Started','Install','Structure','Routes','LionelClient','Methods','PHP'];
-if (sidebarMenuList.includes(location.pathname.substring(1).split('?')[0])) {
-	LionelClient.Helper.createSidebar({
-		items:['Getting Started','Install',{
-			innerHTML:' ',onclick:function () {}
-		},'Structure','Routes','LionelClient','Methods','PHP'],
-		parent:'Docs',
-		position:'left'
-	});
-}
+
+LionelClient.Helper.createSidebar({
+	items:['Getting Started','Install',{
+		innerHTML:' ',onclick:function () {}
+	},'Structure','Routes','LionelClient','Methods','PHP'],
+	parent:'Docs',
+	position:'left'
+});
