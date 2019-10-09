@@ -26,9 +26,14 @@ if (!header) {
 }
 
 LionelClient.Helper.createSidebar({
-	items:['Getting Started','Install',{
+	items:['Getting Started',{
 		innerHTML:' ',onclick:function () {}
-	},'Structure','Routes','LionelClient','Methods','PHP'],
+	},'Structure','LionelClient','Client Helper','Methods','PHP'],
 	parent:'Docs',
 	position:'left'
 });
+const side = document.querySelector('aside');
+console.log(side);
+if(side){
+	side.style.minWidth = '155px';
+}

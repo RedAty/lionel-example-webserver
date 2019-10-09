@@ -1,3 +1,66 @@
 {{>navigation}}
 
-Structure
+<main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+    <h3>Structure of Lionel-App</h3>
+    <p>If you open the main directory of Lionel Application, you need to have an <span>app folder</span> with the
+    following contents:</p>
+    <br><i class="fas fa-folder-open"></i> app
+    <ul>
+        <li><i class="fas fa-folder-open"></i> <a href="#lib">lib</a> - for Common Js modules</li>
+        <li><i class="fas fa-folder-open"></i> <a href="#public">public</a> - for static files, images,css-s for web server. Equals with htdocs in common PHP servers</li>
+        <li><i class="fas fa-folder-open"></i> <a href="#server">server</a> - for server files. (Backend)</li>
+        <li><i class="fas fa-folder-open"></i> <a href="#views">views</a> - for HTML/Template files</li>
+        <li><i class="far fa-file-code"></i> routes.js - for HTML/Template files</li>
+    </ul>
+
+    <h3>Routes.js</h3>
+    <p>In this file we can manage the pairing URL Locations with HTML Templates.
+    <br> For example if we open http://webpage:8080/index and we want to show indexPage.html then the route will be
+    <span>/index -> indexPage</span>
+    <br>Routes.js contains this kind of rules, and detect HTML Template files in views folder. A real example about routes.js: </p>
+    <div style="background-color: #f8f9fa;    overflow-y: scroll;
+    height: 300px;">
+        <code>
+
+        'use strict';
+        <br>const { Lionel } = require("lionel-app/bin/LionelClass");
+        <br>const Router = Lionel.Router;
+        <br>
+        <br>Router.route('/index');
+        <br>Router.route('/', 'index');
+        <br>Router.route('/Home', 'index');
+        <br>Router.route('/About', 'About');
+        <br>Router.route('/Getting Started', 'Getting Started');
+        <br>Router.route('/Install', 'Install');
+        <br>Router.route('/LionelClient', 'LionelClient');
+        <br>Router.route('/Methods', 'Methods');
+        <br>Router.route('/PHP', 'PHP');
+        <br>Router.route('/Routes', 'Routes');
+        <br>Router.route('/Structure', 'Structure');
+
+    </code></div>
+    <p>We can set up the server for every path with Router.route(path,htmlName) function. Do not worry about GET parameters, because they are automatically handled by Router.</p>
+
+    <h3 id="views">Views</h3>
+    <p>This folder contain every Template files. Putting them into sub folders does not affect Router, because it is working by file names, and make file list recursively.
+    <br> A Template can be a simple HTML file, but we can split a HTML file to pieces and use every piece in multiple times in multiple HTML/Templates.</p>
+    <p>Here is an example. We create a header.html file with the Navigation bar and Logo, but we want to show that on every other HTML without copying paste the whole navigation all the time.
+    <br>In this case, we put the data into header.html and, we create an index.html and about.html with content <span>{{>header}}</span></p>
+    <h4>Template</h4>
+    <p>Calling a template is working like <a href="https://hackersandslackers.com/handlebars-templating-in-expressjs/">Express Handlebars</a>, we use special characters to call Router. TemplateName with double brackets. </p>
+    <p><strong>&#123;&#123;>templateName}}</strong> means that Router will look for templateName.html file and overwrite it's content with <strong>&#123;&#123;>templateName}}</strong> code and it will add the onRendered javascript of it too.</p>
+    <h4>OnRendered Javascript</h4>
+    <p>Every template can own a .js file what contains codes to load when template are loaded on the web page. It is very simple and almost the same with <a href="https://www.w3schools.com/jsref/event_onload.asp">onLoad event</a></p>
+
+    <h3 id="server">Server</h3>
+    <p>Server folder is a backend folder, when we can store that javascript files, what we want to use, and call during the life of application. For example Rest API endpoints, workers, services....anything.
+        <br>We called app/server/index.js file from the main server.js file at the start of the project. This index.js file is the first loaded server-side javascript what will be running on a Node JS instance.
+    <br>It is suggested to start build the first lines of the backend in the application here.</p>
+
+    <h3 id="public">Public</h3>
+    <p>Public folder is a static server what serves data directly to the browser, like a basic or PHP web server. In Meteor JS and Express JS we called this <strong>public</strong>, but in other applications like xampp this is the <strong>htdocs</strong> folder </p>
+
+    <h3 id="lib">Lib</h3>
+    <p>Lib folder is a common folder for both backend and frontend, like in other Javascript frameworks. We can create Javascript files, libraries, classes here using with <strong>CommonJS module exports</strong>, and we can import them from anywhere in the application, in the views folder too.
+    <br>If one of the files is imported from lib folder in views, the content of it will be sent to the browser too with <a href="https://www.npmjs.com/package/lionel-commonjs-bundler">Lionel CommonJS Bundler</a>, which is also connected to Lionel Application.</p>
+</main>

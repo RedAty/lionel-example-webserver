@@ -4,12 +4,13 @@ const Router = Lionel.Router;
 Router.route('/index');
 Router.route('/', 'index');
 Router.route('/Home', 'index');
-Router.route('/Docs', 'Docs');
+Router.route('/Docs', 'Getting Started');
 Router.route('/About', 'About');
 Router.route('/Getting Started', 'Getting Started');
-Router.route('/Install', 'Install');
+Router.route('/Client Helper', 'Client Helper');
+
 Router.route('/LionelClient', 'LionelClient');
 Router.route('/Methods', 'Methods');
 Router.route('/PHP', 'PHP');
-Router.route('/Routes', 'Routes');
+
 Router.route('/Structure', 'Structure');

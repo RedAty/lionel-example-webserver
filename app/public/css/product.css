@@ -79,3 +79,10 @@
 }
 
 .overflow-hidden { overflow: hidden; }
+
+main.main-inner {
+    width: 100%;
+}
+body{
+    color:#424242;
+}
